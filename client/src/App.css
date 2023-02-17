@@ -1,0 +1,76 @@
+
+
+.joinForm{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.label{
+  margin-top: 1em;
+}
+
+.label2{
+  margin-top: 2em;
+}
+
+.form{
+  width: 500px;
+}
+
+.h1{
+  text-align: center;
+}
+
+.wjj{
+  margin: 3em;
+  border-radius: 15px;
+  height: auto;
+
+}
+
+.wjj p {
+  font-size: 12px;
+  color: red;
+  margin-top: 5px;
+}
+.btn_center{
+  
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.btn_center Button{
+  width: 400px;
+}
+
+.input_box{
+  border: 1px solid gray;
+  border-radius: none;
+}
+
+.nav-item {
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.nav-item:hover{color: lightgray;}
+
+
+.nav-bar h2{
+  font-family:var(--font-googleFran); 
+  color: black;
+  cursor: pointer;
+}
+
+.nav-bar h2:hover{
+  color: lightgray;
+}
+
+.drop_down{
+  margin-right: 70px;
+}
