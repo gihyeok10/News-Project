@@ -13,8 +13,10 @@ import { Container, Nav, Navbar, NavDropdown,Form,Button } from "react-bootstrap
 const Navigation = () => {
   const navigate = useNavigate()
   const [now,setNow] = useState(true)
-  const loginState = () => {
 
+  const userName = sessionStorage.getItem("user_id") 
+  const loginState = () => {
+ 
 
   }
   return (
@@ -37,7 +39,7 @@ const Navigation = () => {
         </Nav>
         <Form  className="drop_down">
      {now ?    
-   <NavDropdown title="Welcome Username!" id="basic-nav-dropdown">
+   <NavDropdown title={userName} id="basic-nav-dropdown">
     <NavDropdown.Item href="/mypage"><FontAwesomeIcon icon={faCircleUser} /> 내정보</NavDropdown.Item>
     <NavDropdown.Item href="/join">
       <FontAwesomeIcon icon={faUserPen} />내가 쓴글</NavDropdown.Item>

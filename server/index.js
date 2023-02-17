@@ -38,6 +38,7 @@ app.post('/checkLogin',(req,res) => {
   const {id,password} = req.body;
   db.query("select count(*) as 'cnt' from user where id =? and password = ?;",[id,password],(err,result) => {
     res.send(result);
+    
   })
 })
 

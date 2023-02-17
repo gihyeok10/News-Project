@@ -18,6 +18,7 @@ const LoginForm = () => {
       if(res.data[0].cnt == 1){
         console.log("로그인됌!")
         alert("로그인되었습니다!")
+        sessionStorage.setItem('user_id', id)
         navigate('/')
       }
       else{
