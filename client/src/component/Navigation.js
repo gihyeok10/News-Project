@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link ,useNavigate} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,14 +11,28 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Container, Nav, Navbar, NavDropdown,Form,Button } from "react-bootstrap";
 const Navigation = () => {
+
+  const onLogout = () => {
+      sessionStorage.removeItem('user_id')
+      // App 으로 이동(새로고침)
+      document.location.href = '/'
+  }
   const navigate = useNavigate()
-  const [now,setNow] = useState(true)
+  const [now,setNow] = useState(false)
 
   const userName = sessionStorage.getItem("user_id") 
   const loginState = () => {
- 
-
+    if( sessionStorage.getItem("user_id")){
+      setNow(true)
+    }
+    else{
+      setNow(false)
+    }
   }
+
+  useEffect(()=> {
+    loginState()
+  },[sessionStorage.getItem("user_id")])
   return (
     <Navbar bg="light" variant="dark" expand="lg" className='nav-bar'>
     <Container fluid>
@@ -47,7 +61,7 @@ const Navigation = () => {
    
     
     <NavDropdown.Divider />
-    <NavDropdown.Item href="/login">
+    <NavDropdown.Item onClick={onLogout}>
       <FontAwesomeIcon icon={faRightFromBracket} /> 로그아웃
     </NavDropdown.Item>
   </NavDropdown> 
