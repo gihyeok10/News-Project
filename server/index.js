@@ -42,6 +42,13 @@ app.post('/checkLogin',(req,res) => {
   })
 })
 
+app.post('/userInfo',(req,res)=> {
+  const {id,password} = req.body;
+  db.query("SELECT* from user WHERE id =? and password =?;",[id,password],(err,result)=>{
+    res.send(result)
+  })
+})
+
 
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");

@@ -8,7 +8,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const checkLogin = () => {
     axios.post("http://localhost:3001/checkLogin",{
       id:id,
@@ -26,6 +26,16 @@ const LoginForm = () => {
       }
     })
   };
+
+
+  const userInfo = () => {
+    axios.post("http://localhost:3001/userInfo",{
+      id:id,
+      password:password
+    }).then((res)=> {
+      console.log(res)
+    })
+  }
   return (
     <Container className="joinForm">
       <div className="wjj">
@@ -59,6 +69,7 @@ const LoginForm = () => {
           </Form.Group>
           <div className="btn_center">
             <Button onClick={checkLogin}>로그인</Button>
+            <Button onClick={userInfo}>정보 확인</Button>
           </div>
         </Form>
       </div>
