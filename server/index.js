@@ -56,6 +56,20 @@ app.post('/userInfo2',(req,res)=> {
   })
 })
 
+app.post('/changePassword',(req,res)=> {
+  const {password,id} = req.body;
+  db.query("UPDATE user SET password = ? WHERE id = ?;",[password,id],(err,result)=>{
+    res.send(result)
+  })
+})
+
+app.post('/changeEmail',(req,res)=> {
+  const {email,id} = req.body;
+  db.query("UPDATE user SET email = ? WHERE id = ?;",[email,id],(err,result)=>{
+    res.send(result)
+  })
+})
+
 
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");
