@@ -49,6 +49,13 @@ app.post('/userInfo',(req,res)=> {
   })
 })
 
+app.post('/userInfo2',(req,res)=> {
+  const {id} = req.body;
+  db.query("SELECT* from user WHERE id =?;",[id],(err,result)=>{
+    res.send(result)
+  })
+})
+
 
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");

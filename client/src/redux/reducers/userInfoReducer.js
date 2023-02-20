@@ -1,22 +1,15 @@
 let initialState = {
-    id:"",
-    name:"",
-    phone:"",
-    email:"",
-    password:""
+    user:{}
     };
   
-  
-  
     function userInfoReducer(state = initialState, action){
-  
       let {type,payload} = action;
   
       switch(type) {
           case "SUCCESS_LOGIN":
               return{
                   ...state,
-               id:payload.id
+              user:payload.user
               }
   
               default:return{...state}

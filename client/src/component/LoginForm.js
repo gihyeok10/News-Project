@@ -3,22 +3,27 @@ import { useNavigate } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserLock } from "@fortawesome/free-solid-svg-icons";
+import {useDispatch,useSelector} from 'react-redux';
+import { userInfoAction } from "../redux/aciton/userInfoAction";
 import axios from "axios"
 const LoginForm = () => {
   const navigate = useNavigate();
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  
+  const dispatch = useDispatch();
+  let userInformation = {}
   const checkLogin = () => {
-    axios.post("http://localhost:3001/checkLogin",{
+   axios.post("http://localhost:3001/checkLogin",{
       id:id,
       password:password
     }).then((res)=> {
       console.log(res.data)
-      if(res.data[0].cnt == 1){
+       if(res.data[0].cnt == 1){
         console.log("로그인됌!")
         alert("로그인되었습니다!")
         sessionStorage.setItem('user_id', id)
+        userInfo();
+        
         navigate('/')
       }
       else{
@@ -33,7 +38,9 @@ const LoginForm = () => {
       id:id,
       password:password
     }).then((res)=> {
-      console.log(res)
+      console.log(res.data[0])
+      userInformation = res.data[0]
+      dispatch(userInfoAction.getUserInfo(userInformation));
     })
   }
   return (
@@ -69,7 +76,6 @@ const LoginForm = () => {
           </Form.Group>
           <div className="btn_center">
             <Button onClick={checkLogin}>로그인</Button>
-            <Button onClick={userInfo}>정보 확인</Button>
           </div>
         </Form>
       </div>
