@@ -26,10 +26,8 @@ const Navigation = () => {
     // App 으로 이동(새로고침)
     document.location.href = "/";
   };
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [now, setNow] = useState(false);
-  let userInformation = {}
   const userName = sessionStorage.getItem("user_id");
   const loginState = () => {
     if (sessionStorage.getItem("user_id")) {
@@ -39,21 +37,7 @@ const Navigation = () => {
     }
   };
 
-  const goUser = () => {
-    axios
-      .post("http://localhost:3001/userInfo2", {
-        id: sessionStorage.getItem('user_id')
-      })
-      .then((res) => {
-
-        console.log(res.data[0]);
-        userInformation = res.data[0];
-        dispatch(userInfoAction.getUserInfo(userInformation));
-        navigate('myPage')
-       
-      });
-  };
-
+  
   useEffect(() => {
     loginState();
   }, [sessionStorage.getItem("user_id")]);
@@ -89,7 +73,7 @@ const Navigation = () => {
           <Form className="drop_down">
             {now ? (
               <NavDropdown title={userName} id="basic-nav-dropdown">
-                <NavDropdown.Item onClick={goUser}>
+                <NavDropdown.Item onClick={()=>navigate('myPage')}>
                   <FontAwesomeIcon icon={faCircleUser} /> 내정보
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/join">

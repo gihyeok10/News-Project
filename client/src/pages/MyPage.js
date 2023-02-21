@@ -3,19 +3,21 @@ import { useSelector } from "react-redux";
 import { Container, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserLock } from "@fortawesome/free-solid-svg-icons";
-import Modal from "react-bootstrap/Modal";
 import UserModal from "../component/UserModal";
 import UserModalEmail from "../component/UserModalEmail";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const MyPage = () => {
+
+
   const [pwModal, setPwModal] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
   const [emailModal, setEmailModal] = useState(false);
-  const { user } = useSelector((state) => state.userInfo);
-  
-  
+  let { user } = useSelector((state) => state.userInfo);
+ 
+
+ 
   console.log(pwModal);
   console.log("나의 정보:", user);
   return (
@@ -61,7 +63,7 @@ const MyPage = () => {
             <div>{user.phone_number}</div>
 
             <div className="btn_center">
-              <Button>저장</Button>
+              <Button onClick={() => window.location.reload()}>저장</Button>
             </div>
           </Form.Group>
           <div className="btn_center"></div>
