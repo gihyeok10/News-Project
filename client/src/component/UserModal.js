@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import { Button } from "react-bootstrap";
+import { Button,Form } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 const UserModal = (props) => {
@@ -19,23 +19,23 @@ const UserModal = (props) => {
     }
   };
   const changePassword = (e) => {
-    if(ckPw == true){
-    axios
-      .post("http://localhost:3001/changePassword", {
-        password: pw,
-        id: props.id,
-      })
-      .then((res) => {
-        console.log("돌아온데이타", res);
-        alert("변경이 완료되었습니다.")
-        props.onHide()
-      });}
-      else{
-        alert("형식에 맞는 비밀번호를 입력해주세요")
-      }
+    if (ckPw == true) {
+      axios
+        .post("http://localhost:3001/changePassword", {
+          password: pw,
+          id: props.id,
+        })
+        .then((res) => {
+          alert("변경이 완료되었습니다.");
+          props.onHide();
+          window.location.reload();
+        });
+    } else {
+      alert("형식에 맞는 비밀번호를 입력해주세요");
+    }
   };
   return (
-    <Modal
+    <Modal className="wjj" style={{margin:0}}
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
@@ -48,21 +48,25 @@ const UserModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <h4>변경하실 비밀번호를 입력하세요</h4>
-        <input
-          type="text"
+        <Form >
+        <Form.Control
+          type="password"
           onChange={(e) => {
             setPw(e.target.value);
           }}
           onBlur={checkPassword}
-        ></input>
-        {ckPw ? <p>사용가능한 비밀번호 입니다</p> :(
+        ></Form.Control>
+        {ckPw ? (
+          <p>사용가능한 비밀번호 입니다</p>
+        ) : (
           <p>숫자+영문자+특수문자 조합으로 8자리 이상 사용해주세요</p>
         )}
+        </Form>
+        <div className="center">
         <Button onClick={changePassword}>변경</Button>
+        </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
+    
     </Modal>
   );
 };

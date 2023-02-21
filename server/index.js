@@ -70,6 +70,13 @@ app.post('/changeEmail',(req,res)=> {
   })
 })
 
+app.post('/checkEmail2',(req,res)=> {
+  const {email} = req.body;
+  db.query("select count(*) as 'cnt' from user where email =? ",[email],(err,result) => {
+    res.send(result);
+  })
+})
+
 
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");

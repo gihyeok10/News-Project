@@ -7,14 +7,14 @@ import { useState } from "react";
 import { Button, Form, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-
 const JoinForm = () => {
-
   const navigate = useNavigate();
   const [ckPw, setCkPw] = useState(true);
   const [ckEm, setCkEm] = useState(true);
   const [ckPh, setCkPh] = useState(true);
-  const [ckId,setCkId] = useState(true);
+  const [ckId, setCkId] = useState(true);
+  const [existEm, setExistEm] = useState(true);
+
   const checkPhonenumber = (e) => {
     // '-' 입력 시
     var regExp = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
@@ -54,6 +54,19 @@ const JoinForm = () => {
     } else {
       setCkEm(true);
     }
+
+    axios
+      .post("http://localhost:3001/checkEmail2", {
+        email: email,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data[0].cnt >= 1) {
+          setExistEm(false);
+        } else {
+          setExistEm(true);
+        }
+      });
   };
 
   const [password, setPassword] = useState("");
@@ -63,6 +76,7 @@ const JoinForm = () => {
   const [email, setEmail] = useState("");
 
   const adduser = () => {
+    if(ckEm&&ckId&&ckPh&&existEm){
     axios
       .post("http://localhost:3001/adduser", {
         password: password,
@@ -74,27 +88,28 @@ const JoinForm = () => {
       .then((res) => {
         console.log(name);
         console.log("성공!");
-        alert(`${name}님 회원가입을 축하 드립니다`)
-        navigate('/login')
-
+        alert(`${name}님 회원가입을 축하 드립니다`);
+        navigate("/login");
       });
+    }else{
+      alert("양식에 맞게 작성해주세요!")
+    }
   };
 
   const selectuser = () => {
-    axios.post("http://localhost:3001/selectid" , {
-      id:id
-    }).then((res) => {
-      console.log("결과값",res.data)
-      if(res.data[0].cnt === 1){
-        setCkId(false);
-      }
-      else{
-        setCkId(true);
-      }
-      
-    } )
-    
-  }
+    axios
+      .post("http://localhost:3001/selectid", {
+        id: id,
+      })
+      .then((res) => {
+        console.log("결과값", res.data);
+        if (res.data[0].cnt === 1) {
+          setCkId(false);
+        } else {
+          setCkId(true);
+        }
+      });
+  };
 
   return (
     <Container className="joinForm">
@@ -126,11 +141,8 @@ const JoinForm = () => {
               onChange={(e) => {
                 setId(e.target.value);
               }}
-              
             />
-            {ckId ? null: (
-              <p>해당 아이디는 이미 사용중입니다.</p>
-            )}
+            {ckId ? null : <p>해당 아이디는 이미 사용중입니다.</p>}
             <Form.Label className="label">비밀번호</Form.Label>
             <Form.Control
               className="input_box"
@@ -154,13 +166,8 @@ const JoinForm = () => {
                 setPhone_number(e.target.value);
               }}
             />
-            {ckPh ? null : (
-              <p>
-                - 없이
-                연락처를 입력해주세요
-              </p>
-            )}
-           
+            {ckPh ? null : <p>- 없이 연락처를 입력해주세요</p>}
+
             <Form.Label className="label">이메일</Form.Label>
             <Form.Control
               type="text"
@@ -170,7 +177,10 @@ const JoinForm = () => {
                 setEmail(e.target.value);
               }}
             />
-            {ckEm ? null : <p>이메일 형식을 준수해주세요</p>}
+            {existEm ? (
+              <div>{ckEm ? null : <p>이메일 형식을 준수해주세요</p>}</div>
+            ) : null}
+            {existEm ? null : <p>해당 이메일은 이미 사용중인 이메일입니다!</p>}
           </Form.Group>
           <div className="btn_center">
             <Button onClick={adduser}>회원가입</Button>

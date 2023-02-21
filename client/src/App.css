@@ -10,10 +10,15 @@
 
 .label{
   margin-top: 1em;
+  font-weight: bold;
 }
+
+
 
 .label2{
   margin-top: 2em;
+  font-weight: bold;
+
 }
 
 .form{
@@ -35,6 +40,17 @@
   font-size: 12px;
   color: red;
   margin-top: 5px;
+}
+
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center Button{
+  width: 300px;
 }
 .btn_center{
   
@@ -73,4 +89,27 @@
 
 .drop_down{
   margin-right: 70px;
+}
+
+.border_line{
+  border: 1px solid black;
+}
+
+
+.Info_box{
+  display:flex;
+}
+
+.Info_box Button{
+}
+
+.pwp{
+  font-size: 20px;
+}
+
+.btn2{
+  margin-left: 100px;
+}
+.btn3{
+  margin-left: 115px;
 }
