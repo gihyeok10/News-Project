@@ -21,8 +21,23 @@ import {
   Button,
 } from "react-bootstrap";
 const Navigation = () => {
+
+  const [checkLogin,setCheckLogin] = useState(true)
+
+  useEffect(()=> {
+    const checkLoginState = () => {
+      if(sessionStorage.getItem("user_id")){
+        setCheckLogin(false)
+      }
+    }
+    checkLoginState();
+  },[sessionStorage.getItem("user_id")]
+
+  )
+
   const onLogout = () => {
     sessionStorage.removeItem("user_id");
+    setCheckLogin(true)
     // App 으로 이동(새로고침)
     document.location.href = "/";
   };
@@ -61,6 +76,8 @@ const Navigation = () => {
               <FontAwesomeIcon icon={faMagnifyingGlass} />
               Search
             </Link>
+            {checkLogin ?
+            <div>
             <Link to="/login" className="nav-item">
               <FontAwesomeIcon icon={faUser} />
               Login
@@ -68,7 +85,8 @@ const Navigation = () => {
             <Link to="/join" className="nav-item">
               <FontAwesomeIcon icon={faUserPen} />
               Join
-            </Link>
+            </Link></div> : null
+            }
           </Nav>
           <Form className="drop_down">
             {now ? (
