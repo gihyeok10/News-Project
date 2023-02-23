@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { userInfoAction } from './redux/aciton/userInfoAction';
+import DetailPage from './pages/DetailPage';
 function App() {
 
   let user = {}
@@ -40,12 +41,13 @@ function App() {
     <div className="App">
     <Navigation></Navigation>
       <Routes>
+      
         <Route path='/' element={<Home/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/join' element={<Join/>}></Route>
         <Route path='/myPage' element={<MyPage/>}></Route>
         <Route path='/search' element={<Search/>}></Route>
-        
+        <Route path='/detail/:title' element={<DetailPage/>}></Route>  
       </Routes>
    
     </div>
