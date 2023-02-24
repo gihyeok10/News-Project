@@ -14,7 +14,8 @@ const Banner = (newsData) => {
 
   return (
     <Container>
-      <div className="banner">
+    <h1 style={{marginTop:"2em"}}>Head Line News</h1>
+      <div className="banner">   
         {newsData.newsData.articles && (
           <div
             onClick={() => detailGo(newsData.newsData.articles[0])}
@@ -110,6 +111,7 @@ const Banner = (newsData) => {
         </div>
       </div>
     </Container>
+    
   );
 };
 

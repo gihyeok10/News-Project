@@ -57,7 +57,7 @@ const Navigation = () => {
     loginState();
   }, [sessionStorage.getItem("user_id")]);
   return (
-    <Navbar bg="light" variant="dark" expand="lg" className="nav-bar">
+    <Navbar bg="primary" variant="dark" expand="lg" className="nav-bar">
       <Container fluid>
         <Navbar.Brand>
           <h2 onClick={() => navigate("/")}>News World</h2>

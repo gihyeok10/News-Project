@@ -1,4 +1,6 @@
-
+.App{
+  background-color: #f4f6f8;
+}
 
 .joinForm{
   
@@ -70,7 +72,7 @@
 }
 
 .nav-item {
-  color: black;
+  color: white;
   text-decoration: none;
   margin-right: 20px;
 }
@@ -79,7 +81,6 @@
 
 .nav-bar h2{
   font-family:var(--font-googleFran); 
-  color: black;
   cursor: pointer;
 }
 
@@ -159,7 +160,6 @@ h6.fromLeft:after{  transform-origin:  0% 50%; }
 
 
 .banner{
-  margin-top: 3em;
   width: 100%;
   height: 400px;
   display: flex;
@@ -247,4 +247,47 @@ banner-info p{
 .newsContentmargin:hover{
   cursor: pointer;
 }
+
+
+
+.topArticles{
+  margin-top: 5em;
+}
+
+.topArticles h2{
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+.navCategory{
+  height: 35px;
+}
+.marginMenu{
+  margin-top: 2px;
+  margin-left: 2em;
+  font-weight: bold;
+
+}
+
+.marginMenu1{
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+.marginMenu:hover{
+ cursor: pointer; 
+ color: blue;
+}
+.marginMenu1:hover{
+  cursor: pointer; 
+  color: blue;
+ }
+
+ .date{
+  margin-top: 1em;
+ }
+ .date p {
+  font-weight: bold;
+ }
+
 

@@ -4,8 +4,8 @@ import ContentCard from "./ContentCard";
 const TopContent = (newsData) => {
   return (
     <Container>
-      <div>
-        <h2>Top 20 Contents</h2>
+      <div className="topArticles">
+        <h2>Top 20 Articles</h2>
       </div>
       <Row>
         {newsData.newsData.articles &&
@@ -27,15 +27,3 @@ const TopContent = (newsData) => {
 
 export default TopContent;
 
-
-{/* <Card style={{ width: "25rem" }} className="newsContentmargin">
-                    <Card.Img
-                      variant="top"
-                      src={item.urlToImage}
-                      className="img-t"
-                    />
-                    <Card.Body>
-                      <Card.Title>{item.description&& item.title.substr(0, 31)}..</Card.Title>
-                      <Card.Text>{item.description&& item.description.substr(0,90)}...</Card.Text>
-                    </Card.Body>
-                  </Card> */}
