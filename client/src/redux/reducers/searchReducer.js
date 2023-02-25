@@ -12,7 +12,12 @@ let initialState = {
                   ...state,
                   searchData:payload.searchData
               }
-  
+              
+              case "SUCCESS_GO_SEARCH":
+                return{
+                    ...state,
+                    searchData:payload.searchData
+                }
               default:return{...state}
       }
   

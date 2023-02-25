@@ -51,7 +51,7 @@ const HomePage = () => {
       <hr></hr>
     </div>
       <Banner newsData={newsData} />
-      <TopContent newsData={newsData}/>
+      <TopContent newsData={newsData} name="Top 20 Articles" number={4}/>
     </Container>
     </div>
   );

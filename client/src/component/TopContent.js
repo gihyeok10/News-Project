@@ -1,17 +1,17 @@
 import React from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import ContentCard from "./ContentCard";
-const TopContent = (newsData) => {
+const TopContent = ({newsData,name,margin,number}) => {
   return (
     <Container>
-      <div className="topArticles">
-        <h2>Top 20 Articles</h2>
+      <div className="topArticles" style={{marginTop:margin}}>
+        <h2>{name}</h2>
       </div>
       <Row>
-        {newsData.newsData.articles &&
-          newsData.newsData.articles.map((item, index) => {
+        {newsData.articles &&
+        newsData.articles.map((item, index) => {
             
-            if (index > 4) {
+            if (index > number) {
               return (
                 <Col className="" key={item.title}>
                     <ContentCard item={item}/>

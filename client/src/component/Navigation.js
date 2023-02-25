@@ -20,10 +20,15 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
+import { zeroAction } from "../redux/aciton/zeroAction";
 const Navigation = () => {
 
   const [checkLogin,setCheckLogin] = useState(true)
+  const dispatch = useDispatch();
 
+  const zero = () => {
+    dispatch(zeroAction.zero())
+  }
   useEffect(()=> {
     const checkLoginState = () => {
       if(sessionStorage.getItem("user_id")){
@@ -72,7 +77,7 @@ const Navigation = () => {
             <Link to="/" className="nav-item">
               <FontAwesomeIcon icon={faHouse} /> Home
             </Link>
-            <Link to="/search" className="nav-item">
+            <Link to="/search" className="nav-item" onClick={zero}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
               Search
             </Link>

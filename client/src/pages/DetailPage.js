@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
 const DetailPage = () => {
   const { searchData } = useSelector((state) => state.search);
-  console.log("제발,..", searchData);
   return (
     <Container>
     <div>
@@ -26,3 +25,6 @@ const DetailPage = () => {
 };
 
 export default DetailPage;
+
+//디테일 페이지 구현
+//디테일 페이지 에 글쓰기 기능 추가
