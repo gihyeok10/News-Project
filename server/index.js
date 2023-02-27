@@ -77,6 +77,31 @@ app.post('/checkEmail2',(req,res)=> {
   })
 })
 
+//글쓰기 테이블
+app.post("/writeComment", (req, res) => {
+  const {user_id,title,comment,date} = req.body;
+  db.query("INSERT INTO comment (user_id,title,comment,date) VALUES (?,?,?,?)", [
+    user_id,title,comment,date
+  ], (err,result)=> {
+    if(err){
+        console.log(err)
+    }else{
+        res.send("Success")
+    }
+  });
+});
+
+
+app.post('/title',(req,res)=> {
+  const {title} = req.body;
+  db.query("SELECT* from comment WHERE title =?;",[title],(err,result)=>{
+    res.send(result)
+  })
+})
+
+
+
+
 
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");
