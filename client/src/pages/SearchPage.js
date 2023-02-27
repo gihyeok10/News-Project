@@ -10,7 +10,6 @@ const SearchPage = () => {
   const dispatch = useDispatch();
   
   const { user } = useSelector((state) => state.userInfo);
-  console.log("여기는 서치페이지 오바", user);
   const [searchInput, setSearchInput] = useState("");
   const { inPutSearchData } = useSelector((state) => state.getSearch);
   const goSearch = () => {

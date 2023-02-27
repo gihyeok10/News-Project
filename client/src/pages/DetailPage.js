@@ -1,10 +1,20 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { searchAction } from "../redux/aciton/searchAction";
 import { Container } from "react-bootstrap";
 import Emoj from "../component/Emoj";
 import Comment from "../component/Comment";
+
 const DetailPage = () => {
+  // const dispatch = useDispatch();
+  // const params = useParams();
+  // console.log("파람",params.title)
   const { searchData } = useSelector((state) => state.search);
+  // useEffect(()=>{
+  //   dispatch(searchAction.searchNews(params.title))
+  // },[])
   return (
     <Container>
       <Container className="title_center2">

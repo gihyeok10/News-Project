@@ -432,10 +432,8 @@ banner-info p{
 
 }
 .comment_box div{
-  margin-left: 2em;
 
   margin-top: 1em;
-
 
 }
 
@@ -460,5 +458,17 @@ padding: 5px;}
   .input_box3{
     width: 100%;
     height: 150px;
+    padding-left: 1em;
+    padding-bottom: 80px;
+    font-size: 15px;
+    border: 1px solid lightgray;
+    
   }
   
+
+  .writeButton{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+  }
