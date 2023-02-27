@@ -12,7 +12,7 @@ let initialState = {
                   newsData:payload.newsData
               }
   
-              default:return{...state}
+              default:return state;
       }
   
     }

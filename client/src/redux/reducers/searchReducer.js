@@ -18,7 +18,7 @@ let initialState = {
                     ...state,
                     searchData:payload.searchData
                 }
-              default:return{...state}
+              default:return state;
       }
   
     }
