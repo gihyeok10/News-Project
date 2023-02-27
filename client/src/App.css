@@ -367,3 +367,95 @@ banner-info p{
   text-align: center;
   font-family: 'Merriweather', serif;
 }
+
+.article_img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+
+.title_center2{
+  text-align: center;
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_center{
+  width: 50%;
+}
+.title_center h1{
+  font-weight: bold;
+}
+
+.contents_box p{
+  font-size: 17px;
+}
+
+.emoji_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+}
+
+.emoji_box div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 230px;
+}
+
+.emoji h1{
+  font-size: 100px;
+}
+
+.emoji h1:hover{
+  cursor: pointer;
+}
+.emoji div{
+  display: block;
+  text-align: center;
+}
+
+.comment_box{
+  width: 100%;
+}
+
+.comment_box h2{
+  font-family: 'Merriweather', serif;
+
+}
+.comment_box div{
+  margin-left: 2em;
+
+  margin-top: 1em;
+
+
+}
+
+.comment_box p{
+  font-size: 16px;
+}
+
+.em{
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.em div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid lightgray;
+  margin-right: 2em;
+padding: 5px;}
+
+  
+  
