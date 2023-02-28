@@ -100,9 +100,41 @@ app.post('/title',(req,res)=> {
 })
 
 
+app.post('/checkTitle',(req,res)=> {
+  const {title} = req.body;
+  db.query("select count(*) as 'cnt' from mood where title =? ",[title],(err,result) => {
+    res.send(result);
+  })
+})
+
+app.post("/createMood", (req, res) => {
+  const {title,mood} = req.body;
+  
+  db.query(`INSERT INTO mood (title,${mood}) VALUES (?,+1)`, [
+    title
+  ], (err,result)=> {
+    if(err){
+        console.log(err)
+    }else{
+        res.send("Success")
+    }
+  });
+});
 
 
+app.post('/countMood',(req,res)=> {
+  const {title,mood} = req.body;
+  db.query(`UPDATE mood SET ${mood} = ${mood}+1 WHERE title = ?;`,[title],(err,result)=>{
+    res.send(result)
+  })
+})
 
+app.post('/showMood',(req,res)=> {
+  const {title} = req.body;
+  db.query("SELECT* from mood WHERE title =?;",[title],(err,result)=>{
+    res.send(result)
+  })
+})
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");
   });
