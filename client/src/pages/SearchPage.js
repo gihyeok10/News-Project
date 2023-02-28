@@ -43,6 +43,12 @@ const SearchPage = () => {
                 class="search-input"
                 type="text"
                 placeholder="Input Articles KeyWorld"
+                onKeyPress={(e) => {
+                  if(e.key == "Enter"){
+                    goSearch();
+                  }
+                }}
+               
               />
               <FontAwesomeIcon icon={faKeyboard} className="icon" />
             </div>

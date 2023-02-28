@@ -109,9 +109,9 @@ app.post('/checkTitle',(req,res)=> {
 
 app.post("/createMood", (req, res) => {
   const {title,mood} = req.body;
-  
-  db.query(`INSERT INTO mood (title,${mood}) VALUES (?,+1)`, [
-    title
+  const go = 1
+  db.query(`INSERT INTO mood (title,angry,great,notWant,fan) VALUES (?,0,0,0,0)`, [
+    title,go
   ], (err,result)=> {
     if(err){
         console.log(err)
