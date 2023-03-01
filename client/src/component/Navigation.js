@@ -99,7 +99,7 @@ const Navigation = () => {
                 <NavDropdown.Item onClick={()=>navigate('myPage')}>
                   <FontAwesomeIcon icon={faCircleUser} /> 내정보
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/join">
+                <NavDropdown.Item href="/write">
                   <FontAwesomeIcon icon={faUserPen} />
                   내가 쓴글
                 </NavDropdown.Item>

@@ -15,63 +15,43 @@ const Comment = ({ searchData }) => {
   let dayOfWeek = week[now.getDay()];
   let today = todayYear + "-" + todayMonth + "-" + todayDate + "-" + dayOfWeek; //오늘 날짜
   const [commentData, setCommentData] = useState([]);
-  const postNaver = () => {
-    const client_id = 'ryy3bh3ehm';
-const client_secret = 'fHQulJQp9Pqo4e2I23e2u1kS4S0DWPh5DN3PGXaF';
-    const con= {"content":"짜증이나네.,"};
-    try{
-      axios({
-        url: '/v1/analyze',
-        method: 'post',
-        data: JSON.stringify(con),
-        headers: {
-          'X-NCP-APIGW-API-KEY-ID': client_id,
-        'X-NCP-APIGW-API-KEY': client_secret,
-        'Content-Type': 'application/json',
+
+  const writeComment = (write) => {
+    const client_id = "ryy3bh3ehm";
+    const client_secret = "fHQulJQp9Pqo4e2I23e2u1kS4S0DWPh5DN3PGXaF";
+    const con = { content: write };
+
+    axios({
+      url: "/v1/analyze",
+      method: "post",
+      data: JSON.stringify(con),
+      headers: {
+        "X-NCP-APIGW-API-KEY-ID": client_id,
+        "X-NCP-APIGW-API-KEY": client_secret,
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      console.log(res.data.document.sentiment);
+      if (res.data.document.sentiment === "negative") {
+        alert("분석결과 부정도가 높습니다 좀 더 긍정적인 댓글을 부탁드립니다..!");
+      } else {
+        if (sessionStorage.getItem("user_id")) {
+          axios
+            .post("http://localhost:3001/writeComment", {
+              title: title,
+              date: today,
+              comment: comment,
+              user_id: id,
+            })
+            .then((res) => {
+              console.log("결과요", res);
+              setCheckPoint(!checkPoint);
+            });
+        } else {
+          alert("로그인이 필요합니다.");
         }
-      }).then((res)=>{
-        console.log(res)
-    
-      })}catch(e){
-        console.log(e)
-
-      }}
-  //     axios({
-  //       url: '/sentiment-analysis/v1/analyze',
-  //       method: 'post',
-  //       data: JSON.stringify(con),
-  //       headers: {
-  //         'X-NCP-APIGW-API-KEY-ID': "53ibdfwcna",
-  //       'X-NCP-APIGW-API-KEY': "Lk9Oxhsyh7C38ADKDb9LdyA7PGmnbN29dkAECwoU",
-  //       'Content-Type': 'application/json',
-  //       }
-  //     }).then((res)=>{
-  //       console.log("데이터 임둥",res)
-  //     })
-
-  //   }
-  //   catch(e){
-  //     console.log("에러는?",e)
-      
-  //   }
-  // }
-  const writeComment = () => {
-    postNaver();
-    if (sessionStorage.getItem("user_id")) {
-      axios
-        .post("http://localhost:3001/writeComment", {
-          title: title,
-          date: today,
-          comment: comment,
-          user_id: id,
-        })
-        .then((res) => {
-          console.log("결과요", res);
-          setCheckPoint(!checkPoint);
-        });
-    } else {
-      alert("로그인이 필요합니다.");
-    }
+      }
+    });
   };
 
   useEffect(() => {
@@ -117,13 +97,13 @@ const client_secret = 'fHQulJQp9Pqo4e2I23e2u1kS4S0DWPh5DN3PGXaF';
             placeholder="Please enter a comment"
             onChange={(e) => setComment(e.target.value)}
             onKeyPress={(e) => {
-              if(e.key == "Enter"){
-                writeComment();
+              if (e.key == "Enter") {
+                writeComment(comment);
               }
             }}
           ></input>
           <div className="writeButton">
-            <button type="reset" onClick={writeComment}>
+            <button type="reset" onClick={() => writeComment(comment)}>
               Comment
             </button>
           </div>

@@ -6,6 +6,7 @@ import Join from './pages/Join';
 import MyPage from './pages/MyPage'
 import Search from './pages/SearchPage'
 import Navigation from './component/Navigation';
+import MyWritePage from './pages/MyWritePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -47,6 +48,7 @@ function App() {
         <Route path='/join' element={<Join/>}></Route>
         <Route path='/myPage' element={<MyPage/>}></Route>
         <Route path='/search' element={<Search/>}></Route>
+        <Route path='/write' element={<MyWritePage/>}></Route>
         <Route path='/detail/:title' element={<DetailPage/>}></Route>  
       </Routes>
    

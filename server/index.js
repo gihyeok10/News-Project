@@ -135,6 +135,22 @@ app.post('/showMood',(req,res)=> {
     res.send(result)
   })
 })
+
+
+app.post('/showWriteInfo',(req,res)=> {
+  const {user_id} = req.body;
+  console.log(user_id)
+  db.query("SELECT* from comment WHERE user_id =?;",[user_id],(err,result)=>{
+    res.send(result)
+  })
+})
+
+app.post('/deleteComment',(req,res)=> {
+  const {id} = req.body;
+  db.query(`Delete from comment where id = ?;`,[id],(err,result)=>{
+    res.send(result)
+  })
+})
 app.listen(PORT, () => {
     console.log("서버 돌리는중..");
   });
