@@ -10,14 +10,15 @@ const TopContent = ({newsData,name,margin,number}) => {
       <Row>
         {newsData.articles &&
         newsData.articles.map((item, index) => {
-            
-            if (index > number) {
+            if(item.title !== "Washington Nationals owner Ted Lerner dies at 97"){
+            if (index >= number) {
               return (
-                <Col className="" key={item.title}>
+                <Col className="" key={index}>
                     <ContentCard item={item}/>
                 </Col>
                 
               );
+            }
             }
           })}
       </Row>
