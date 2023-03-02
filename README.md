@@ -17,6 +17,8 @@
 </div>
 <a href="url" > <h2>:mag: Link </h2></a>
 <a href="url" > <h2>:bar_chart: App Composition </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222361806-a6fcb4f9-14b2-4047-aa44-734b8cb06db1.png">
+
 <a href="url" > <h2>:notebook_with_decorative_cover: App Function </h2> </a>
 <p style=fontWeight:"bold">:pushpin: Function summary of News World</p>
 <p>:heavy_check_mark: There is a member registration function through validation.</p>
