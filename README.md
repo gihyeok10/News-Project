@@ -25,6 +25,6 @@
 <p>:heavy_check_mark: Click on a news card to view detailed news information.</p>
 <p>:heavy_check_mark: Various emotions can be expressed in the article.</p>
 <p>:heavy_check_mark: You can leave a comment on the article.</p>
-<p>:heavy_check_mark: However, Naver Clova Sentiment Analysis was used to make it impossible to enter a comment if the comment is negative</p>
+<p>:heavy_check_mark: However, Naver Clova Sentiment Analysis was used to make it impossible to enter a comment if the comment is     negative</p>
 <p>:heavy_check_mark: Member information can be changed.</p>
 <p>:heavy_check_mark: You can delete comments on articles you wrote.</p>
