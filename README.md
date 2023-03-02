@@ -30,3 +30,36 @@
 <p>:heavy_check_mark: You can delete comments on articles you wrote.</p>
 <a href="url" ></a>
 <a href="url" > <h2>:books: Pages introduction </h2> </a>
+
+<a href="url" > <h3>:pushpin: Home </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222347752-96577502-07ce-45da-807d-99579f9007aa.png">
+<img src="https://user-images.githubusercontent.com/103566149/222347882-4c5559cf-4295-44c2-a9e4-ededc55ee22c.png">
+
+<a href="url" > <h3>:pushpin: Search </h2> </a>
+<img style={{maginTop:5}} src="https://user-images.githubusercontent.com/103566149/222348572-8e64bfdd-e898-4b9b-bb43-b98ca23745c9.png">
+
+<a href="url" > <h3>:pushpin: Detail </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222348799-d51a664d-01e5-4442-94e2-2c3f491cbd72.png">
+<img src="https://user-images.githubusercontent.com/103566149/222348878-d5f4672d-3f53-4994-a0ac-2f0f3f8d1c31.png">
+<img src="https://user-images.githubusercontent.com/103566149/222348927-ce2ba4bc-dbc9-4346-a2f9-438356b9db63.png">
+
+
+<a href="url" > <h3>:pushpin: Join </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222349521-e40e09b3-4c39-4ea7-8683-ab0b0dce6b8b.png">
+
+<a href="url" > <h3>:pushpin: Login </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222349593-824b003d-543e-4db1-8fba-9a23abfac0ec.png">
+
+<a href="url" > <h3>:pushpin: MyPage </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222349673-04cfd9b6-c163-44cc-a428-738e55f4b3a7.png">
+<img src="https://user-images.githubusercontent.com/103566149/222349981-5f65067e-53a7-4a9d-89ed-eab61015a6ce.png">
+
+
+<a href="url" > <h3>:pushpin: MyWritten </h2> </a>
+<img src="https://user-images.githubusercontent.com/103566149/222350086-594e21c6-b5a6-4918-8446-770bd6cf370a.png">
+
+
+
+
+
+
