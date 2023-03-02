@@ -14,7 +14,7 @@ const Banner = (newsData) => {
 
   return (
     <Container>
-    <h1 style={{marginTop:"2em"}}>Head Line News</h1>
+    <h1 style={{marginTop:"2em"}} className="font">Head Line News</h1>
       <div className="banner">   
         {newsData.newsData.articles && (
           <div

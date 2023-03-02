@@ -72,6 +72,9 @@ const LoginForm = () => {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
+              onKeyPress={(e)=> {if(e.key == "Enter"){
+                checkLogin();
+              }}}
             />
           </Form.Group>
           <div className="btn_center">

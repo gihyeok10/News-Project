@@ -17,6 +17,7 @@ const MyPage = () => {
   console.log(pwModal);
   console.log("나의 정보:", user);
   return (
+    <div className="tile">
     <Container className="joinForm">
       <div className="wjj">
         <div className="h1">
@@ -85,6 +86,7 @@ const MyPage = () => {
         </Form>
       </div>
     </Container>
+    </div>
   );
 };
 

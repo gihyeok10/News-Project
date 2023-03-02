@@ -31,7 +31,7 @@ const HomePage = () => {
   console.log("뉴스데이타~", newsData);
 
   return (
-    <div>
+    <div className="tile">
     <Navbar bg="white" variant="dark">
     <Container>
       <Nav className="navCategory">

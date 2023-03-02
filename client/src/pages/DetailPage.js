@@ -8,6 +8,7 @@ const DetailPage = () => {
   const { searchData } = useSelector((state) => state.search);
 
   return (
+    <div className="tile">
     <Container>
       <Container className="title_center2">
         <div className="title_center">
@@ -30,7 +31,7 @@ const DetailPage = () => {
         <p>{searchData.content}</p>
         <p>Summary: {searchData.description}</p>
         <p>
-          <a href={searchData.url}>See details</a>
+          <a href={searchData.url}>See Details</a>
         </p>
       </div>
       <hr></hr>
@@ -38,6 +39,7 @@ const DetailPage = () => {
       <hr></hr>
       <Comment searchData={searchData} />
     </Container>
+    </div>
   );
 };
 

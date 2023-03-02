@@ -18,12 +18,14 @@ const WriteInfo = () => {
   return (
     <Container>
     <div className="comment_box">
-    <h2>Comment</h2>
+    <h2 style={{marginTop:"3em"}}>Comment written</h2>
     <hr></hr>
     {comment.data &&
         comment.data.map((item, index) => {
         return (
           <div key={index}>
+            <p>{index+1}.  Article Title:{item.title}</p>
+            <hr></hr>
             <div>
               <p style={{ fontSize: 16, fontWeight: "bold" }}>
                 {item.user_id.slice(0, -4) + "****"}

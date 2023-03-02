@@ -2,7 +2,7 @@ import React from 'react'
 import JoinForm from '../component/JoinForm'
 const join = () => {
   return (
-    <div>
+    <div className='view'>
       <JoinForm/>
     </div>
   )

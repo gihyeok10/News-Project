@@ -30,7 +30,7 @@ const SearchPage = () => {
       totalResult()
     },[inPutSearchData])
   return (
-   
+   <div className="tile">
     <Container>
       <div className="search-bar1">
         <div className="search-bar">
@@ -59,8 +59,8 @@ const SearchPage = () => {
         </div>
       </div>
       {checkData? <TopContent newsData={inPutSearchData} name="Search Articles" margin={0} number={0}/>: <h1 className="cen">No articles were found.</h1>}
-      <div className="foot"></div>
     </Container>
+    </div>
     
   );
 };

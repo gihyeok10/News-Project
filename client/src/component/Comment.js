@@ -33,7 +33,7 @@ const Comment = ({ searchData }) => {
     }).then((res) => {
       console.log(res.data.document.sentiment);
       if (res.data.document.sentiment === "negative") {
-        alert("분석결과 부정도가 높습니다 좀 더 긍정적인 댓글을 부탁드립니다..!");
+        alert("입력하신 댓글을 분석한 결과 부정도가 높습니다. 긍정적인 댓글 부탁드립니다.");
       } else {
         if (sessionStorage.getItem("user_id")) {
           axios
@@ -108,7 +108,7 @@ const Comment = ({ searchData }) => {
             </button>
           </div>
         </form>
-        <div style={{ height: 100 }}></div>
+        <div style={{ height: 20 }}></div>
       </div>
     </div>
   );

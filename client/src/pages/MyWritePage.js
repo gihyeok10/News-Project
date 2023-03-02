@@ -3,7 +3,7 @@ import WriteInfo from '../component/WriteInfo'
 const MyWritePage = () => {
     
   return (
-    <div>
+    <div className='tile'>
         <WriteInfo/>
     </div>
   )

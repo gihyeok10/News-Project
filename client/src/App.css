@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Labrada&family=Merriweather:wght@300&family=Newsreader:ital,opsz,wght@0,6..72,200;1,6..72,500&family=Oswald:wght@200;300;400;500&display=swap');
 .App{
   background-color: #f4f6f8;
+  height: 100vh;
 }
 .newsWorld{
   font-family: 'Merriweather', serif;
@@ -8,7 +9,18 @@
   font-size: 84px;
   
 }
+.tile{
+  background-color: #f4f6f8;
+}
+.font{
+  font-family: 'Merriweather', serif;
+}
 
+/* .view{
+  height: 100vh;
+  background-color: #f4f6f8;
+
+} */
 .joinForm{
   
   display: flex;
