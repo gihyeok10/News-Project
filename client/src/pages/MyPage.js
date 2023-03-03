@@ -33,7 +33,7 @@ const MyPage = () => {
             <hr></hr>
             <Form.Label className="label">비밀번호:</Form.Label>
             <Row>
-              <Col> {user.password}</Col>
+              <Col>{user.password}</Col>
               <Col>
                 <Button
                   variant="danger"

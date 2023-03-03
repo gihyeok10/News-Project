@@ -3,42 +3,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container } from "react-bootstrap";
 import Emoj from "../component/Emoj";
 import Comment from "../component/Comment";
-
+import DetailInfo from "../component/DetailInfo";
 const DetailPage = () => {
   const { searchData } = useSelector((state) => state.search);
 
   return (
     <div className="tile">
-    <Container>
-      <Container className="title_center2">
-        <div className="title_center">
-          <h1>{searchData.title}</h1>
-          <hr></hr>
-        </div>
-      </Container>
       <Container>
-        <div className="article_img">
-          <img src={searchData.urlToImage}></img>
-        </div>
+        <DetailInfo searchData={searchData} />
+        <hr></hr>
+        <Emoj searchData={searchData}></Emoj>
+        <hr></hr>
+        <Comment searchData={searchData} />
       </Container>
-      <hr></hr>
-      <div className="contents_box">
-        {searchData.author && <p>Author: [{searchData.author}]</p>}
-        <p>[{searchData.source.name}]</p>
-        <p>Article entry time: {searchData.publishedAt.substr(0, 10)}</p>
-      </div>
-      <div className="contents_box">
-        <p>{searchData.content}</p>
-        <p>Summary: {searchData.description}</p>
-        <p>
-          <a href={searchData.url}>See Details</a>
-        </p>
-      </div>
-      <hr></hr>
-      <Emoj searchData={searchData}></Emoj>
-      <hr></hr>
-      <Comment searchData={searchData} />
-    </Container>
     </div>
   );
 };
@@ -55,5 +32,4 @@ export default DetailPage;
 //emoji table == > id(auto),title(url),happy,sad,mad,fan
 //comment table ==> id(auto),title(url),comment,date,user_id
 
-
-//clear 
+//clear
