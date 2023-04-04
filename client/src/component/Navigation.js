@@ -22,27 +22,24 @@ import {
 } from "react-bootstrap";
 import { zeroAction } from "../redux/aciton/zeroAction";
 const Navigation = () => {
-
-  const [checkLogin,setCheckLogin] = useState(true)
+  const [checkLogin, setCheckLogin] = useState(true);
   const dispatch = useDispatch();
 
   const zero = () => {
-    dispatch(zeroAction.zero())
-  }
-  useEffect(()=> {
+    dispatch(zeroAction.zero());
+  };
+  useEffect(() => {
     const checkLoginState = () => {
-      if(sessionStorage.getItem("user_id")){
-        setCheckLogin(false)
+      if (sessionStorage.getItem("user_id")) {
+        setCheckLogin(false);
       }
-    }
+    };
     checkLoginState();
-  },[sessionStorage.getItem("user_id")]
-
-  )
+  }, [sessionStorage.getItem("user_id")]);
 
   const onLogout = () => {
     sessionStorage.removeItem("user_id");
-    setCheckLogin(true)
+    setCheckLogin(true);
     // App 으로 이동(새로고침)
     document.location.href = "/";
   };
@@ -57,7 +54,6 @@ const Navigation = () => {
     }
   };
 
-  
   useEffect(() => {
     loginState();
   }, [sessionStorage.getItem("user_id")]);
@@ -65,7 +61,7 @@ const Navigation = () => {
     <Navbar bg="primary" variant="dark" expand="lg" className="nav-bar">
       <Container fluid>
         <Navbar.Brand>
-          <h2 onClick={() => navigate("/")}>News World</h2>
+          <h2 onClick={() => navigate("/")}>PureNews</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -81,22 +77,23 @@ const Navigation = () => {
               <FontAwesomeIcon icon={faMagnifyingGlass} />
               Search
             </Link>
-            {checkLogin ?
-            <div>
-            <Link to="/login" className="nav-item">
-              <FontAwesomeIcon icon={faUser} />
-              Login
-            </Link>
-            <Link to="/join" className="nav-item">
-              <FontAwesomeIcon icon={faUserPen} />
-              Join
-            </Link></div> : null
-            }
+            {checkLogin ? (
+              <div>
+                <Link to="/login" className="nav-item">
+                  <FontAwesomeIcon icon={faUser} />
+                  Login
+                </Link>
+                <Link to="/join" className="nav-item">
+                  <FontAwesomeIcon icon={faUserPen} />
+                  Join
+                </Link>
+              </div>
+            ) : null}
           </Nav>
           <Form className="drop_down">
             {now ? (
               <NavDropdown title={userName} id="basic-nav-dropdown">
-                <NavDropdown.Item onClick={()=>navigate('myPage')}>
+                <NavDropdown.Item onClick={() => navigate("myPage")}>
                   <FontAwesomeIcon icon={faCircleUser} /> 내정보
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/write">
